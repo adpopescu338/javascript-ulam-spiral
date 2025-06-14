@@ -65,6 +65,7 @@ export default function UlamSpiralPage() {
           {cells.map((c) => {
             return (
               <Cell
+                zoom={zoom}
                 key={c.n}
                 cell={c}
                 displayNumber={formState.displayNumbers}

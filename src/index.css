@@ -18,7 +18,6 @@ button {
 .spiral-cell {
   width: calc(var(--zoom-val) * 20px);
   height: calc(var(--zoom-val) * 20px);
-  font-size: calc(var(--zoom-val) * 10px);
   line-height: calc(var(--zoom-val) * 50px);
   text-shadow: 1px 1px 3px #000;
   display: flex;

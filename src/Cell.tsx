@@ -5,25 +5,18 @@ import { toast } from 'react-toastify';
 
 const NDisplayer: React.FC<{
   n: number;
-}> = ({ n }) => {
-  if (n < 1000) return n;
-  return (
-    <span
-      style={{
-        // the higher the number of digits, the smaller the font size
-        fontSize: 5 / Math.log10(n.toString().length) + 'px',
-        transformOrigin: 'center',
-      }}
-    >
-      {n}
-    </span>
-  );
+  zoom: number;
+}> = ({ n, zoom }) => {
+  const digits = String(n).length;
+  const fontSize = (zoom * 5) / Math.log10(digits+1); // Adjust font size based on number of digits and zoom level
+  return <span style={{ fontSize: `${fontSize}px` }}>{n}</span>;
 };
 
 export const Cell: React.FC<{
   cell: CellProps;
   displayNumber: boolean;
-}> = ({ cell, displayNumber }) => {
+  zoom: number;
+}> = ({ cell, displayNumber, zoom }) => {
   return (
     <Menu
       menuButton={
@@ -38,7 +31,7 @@ export const Cell: React.FC<{
             gridColumnStart: String(cell.col + 1),
           }}
         >
-          {displayNumber ? <NDisplayer n={cell.n} /> : ''}
+          {displayNumber ? <NDisplayer n={cell.n} zoom={zoom} /> : ''}
         </MenuButton>
       }
     >
