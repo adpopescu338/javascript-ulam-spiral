@@ -15,7 +15,6 @@ export default function UlamSpiralPage() {
     primesColorHex: 'red',
     perfectSquareColorHex: '#800080', // Default color for perfect squares
     displayNumbers: true,
-    displayBorder: true,
   });
 
   const [zoom, setZoom] = useState(1); // Add zoom state
@@ -61,7 +60,6 @@ export default function UlamSpiralPage() {
           style={{
             gridTemplateColumns: `repeat(${gridDim}, ${CELL_SIZE * zoom}px)`,
             gridTemplateRows: `repeat(${gridDim}, ${CELL_SIZE * zoom}px)`,
-            display: 'grid',
           }}
         >
           {cells.map((c) => {

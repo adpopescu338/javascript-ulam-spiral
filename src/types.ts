@@ -28,5 +28,4 @@ export type FormState = {
   perfectSquareColorHex: string;
   primesColorHex: string;
   displayNumbers: boolean;
-  displayBorder: boolean;
 };

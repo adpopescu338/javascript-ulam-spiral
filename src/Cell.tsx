@@ -3,6 +3,23 @@ import type { CellProps } from './types';
 import { Menu, MenuButton } from '@szhsin/react-menu';
 import { toast } from 'react-toastify';
 
+const NDisplayer: React.FC<{
+  n: number;
+}> = ({ n }) => {
+  if (n < 1000) return n;
+  return (
+    <span
+      style={{
+        // the higher the number of digits, the smaller the font size
+        fontSize: 5 / Math.log10(n.toString().length) + 'px',
+        transformOrigin: 'center',
+      }}
+    >
+      {n}
+    </span>
+  );
+};
+
 export const Cell: React.FC<{
   cell: CellProps;
   displayNumber: boolean;
@@ -21,7 +38,7 @@ export const Cell: React.FC<{
             gridColumnStart: String(cell.col + 1),
           }}
         >
-          {displayNumber ? cell.n : ''}
+          {displayNumber ? <NDisplayer n={cell.n} /> : ''}
         </MenuButton>
       }
     >

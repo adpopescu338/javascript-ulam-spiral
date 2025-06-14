@@ -8,7 +8,14 @@ const WithSketchPicker: React.FC<{
   onChangeComplete: (hex: string) => void;
 }> = ({ color, onChangeComplete }) => {
   return (
-    <Menu menuButton={<span className="with-sketch-picker-menu-button" />}>
+    <Menu
+      menuButton={
+        <span
+          className="with-sketch-picker-menu-button"
+          style={{ backgroundColor: color }}
+        />
+      }
+    >
       <SketchPicker
         color={color}
         onChangeComplete={(color) => onChangeComplete(color.hex)}
@@ -71,6 +78,7 @@ export const Form: React.FC<{
       <div id="form-content">
         {/* Multiples */}
         <div>
+          <h5>ⓘ Highlight all multiples of a number</h5>
           {pendingFormState.multiples.map((m, i) => {
             return (
               <div
@@ -193,22 +201,6 @@ export const Form: React.FC<{
           <label
             style={{
               display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              fontSize: '15px',
-            }}
-          >
-            Display borders
-            <input
-              type="checkbox"
-              checked={pendingFormState.displayBorder}
-              onChange={(e) => setProperty('displayBorder', e.target.checked)}
-              style={{ marginTop: '0.25rem' }}
-            />
-          </label>
-          <label
-            style={{
-              display: 'flex',
               fontSize: '15px',
               flexDirection: 'row',
               alignItems: 'center',
@@ -263,6 +255,7 @@ export const Form: React.FC<{
 
         {/* Colors mod N equals */}
         <div>
+          <h5>ⓘ Highlight all numbers that mod N leave a specific remainder</h5>
           {pendingFormState.colorNumbersWhereModNEquals.map((c, i) => {
             return (
               <div className="color-mod-n-equals-item">

@@ -99,7 +99,7 @@ form {
   justify-content: center;
   margin-bottom: 1.5rem;
   width: 100vw;
-  max-width: 700px;
+  max-width: 1200px;
 }
 
 .cellDetails {
@@ -188,4 +188,9 @@ button[type='submit']:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+#spiral {
+  display: grid;
+  justify-content: center;
 }
